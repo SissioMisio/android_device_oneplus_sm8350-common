@@ -24,12 +24,11 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.cameraextension</name>
-        <version>1.0</version>
         <interface>
             <name>ICameraExtensionService</name>
-            <instance>cameraextensionservice</instance>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -49,10 +48,9 @@
             <instance>oplusimsradio1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.oplusSensor</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
         <interface>
             <name>ISensorFeature</name>
             <instance>default</instance>
@@ -146,5 +144,12 @@
         <name>IWifi</name>
         <instance>default</instance>
     </interface>
+    </hal>
+        <hal format="hidl" optional="true">
+        <name>android.hardware.vibrator</name>
+        <interface>
+            <name>IVibrator</name>
+            <instance>default</instance>
+        </interface>
     </hal>
 </compatibility-matrix>
