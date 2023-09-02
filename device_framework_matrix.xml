@@ -50,16 +50,6 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.oplusSensor</name>
-        <transport>hwbinder</transport>
-        <interface>
-            <name>ISensorFeature</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.oplusSensor</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
         <interface>
             <name>ISensorFeature</name>
             <instance>default</instance>
@@ -87,77 +77,6 @@
         <version>1.0</version>
         <interface>
             <name>IIrisFeature</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-        <hal format="hidl" optional="true">
-    <name>android.hardware.boot</name>
-    <version>1.0-2</version>
-    <interface>
-        <name>IBootControl</name>
-        <instance>default</instance>
-    </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-    <name>android.hardware.bluetooth.audio</name>
-    <version>2.0-1</version>
-    <interface>
-        <name>IBluetoothAudioProvidersFactory</name>
-        <instance>default</instance>
-    </interface>
-   </hal>
-   <hal format="aidl" optional="true">
-    <name>android.hardware.drm</name>
-    <version>1</version>
-    <interface>
-        <name>IDrmFactory</name>
-        <instance>clearkey</instance>
-    </interface>
-   </hal>
-   <hal format="aidl" optional="true">
-    <name>android.hardware.nfc</name>
-    <version>1</version>
-    <interface>
-        <name>INfc</name>
-        <instance>default</instance>
-    </interface>
-   </hal>
-   <hal format="hidl" optional="true">
-    <name>android.hardware.usb</name>
-    <version>1.0-3</version>
-    <interface>
-        <name>IUsb</name>
-        <instance>default</instance>
-    </interface>
-   </hal>
-   <hal format="aidl" optional="true">
-    <name>android.hardware.wifi.hostapd</name>
-    <version>1</version>
-    <interface>
-        <name>IHostapd</name>
-        <instance>default</instance>
-    </interface>
-   </hal>
-   <hal format="aidl" optional="true">
-    <name>android.hardware.wifi.supplicant</name>
-    <version>1</version>
-    <interface>
-        <name>ISupplicant</name>
-        <instance>default</instance>
-    </interface>
-   </hal>
-   <hal format="hidl" optional="true">
-    <name>android.hardware.wifi</name>
-    <version>1.0-6</version>
-    <interface>
-        <name>IWifi</name>
-        <instance>default</instance>
-    </interface>
-    </hal>
-        <hal format="hidl" optional="true">
-        <name>android.hardware.vibrator</name>
-        <interface>
-            <name>IVibrator</name>
             <instance>default</instance>
         </interface>
     </hal>
