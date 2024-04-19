@@ -55,6 +55,10 @@ void vendor_load_properties() {
         case 20821: // IN
             OverrideProperty("ro.product.product.model", "MT2111");
             break;
+        // ziti
+        case 22867: // IN
+            OverrideProperty("ro.boot.vbmeta.device_state", "unlocked");
+            break;
         default:
             LOG(ERROR) << "Unexpected project name: " << prjname;
     }
