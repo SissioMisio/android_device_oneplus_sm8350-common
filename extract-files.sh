@@ -64,9 +64,6 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        odm/bin/hw/android.hardware.ir-service.oplus)
-            "${PATCHELF}" --replace-needed "android.hardware.ir-V1-ndk_platform.so" "android.hardware.ir-V1-ndk.so" "${2}"
-            ;;
         odm/etc/camera/CameraHWConfiguration.config)
             sed -i "/SystemCamera = / s/1;/0;/g" "${2}"
             sed -i "/SystemCamera = / s/0;$/1;/" "${2}"
@@ -80,15 +77,8 @@ function blob_fixup() {
         system_ext/lib64/libwfdnative.so)
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
-        vendor/bin/init.kernel.post_boot-lahaina.sh)
-            sed -i "s/uag/schedutil/" "${2}"
-            ;;
         vendor/etc/media_*/video_system_specs.json)
             sed -i "/max_retry_alloc_output_timeout/ s/1000/0/" "${2}"
-            ;;
-        vendor/etc/libnfc-hal-st.conf)
-            sed -i "s/NFC_DEBUG_ENABLED=3/NFC_DEBUG_ENABLED=0/" "${2}"
-            sed -i "s/STNFC_HAL_LOGLEVEL=1/STNFC_HAL_LOGLEVEL=0/" "${2}"
             ;;
         vendor/etc/libnfc-nci.conf)
             sed -i "s/NFC_DEBUG_ENABLED=1/NFC_DEBUG_ENABLED=0/" "${2}"
@@ -105,6 +95,9 @@ function blob_fixup() {
             ;;
         vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so)
             "${SIGSCAN}" -p "23 0B 00 94" -P "1F 20 03 D5" -f "${2}"
+            ;;
+        odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff)
+            "${PATCHELF}" --add-needed "libshims_fingerprint.oplus" "${2}"
             ;;
         odm/lib/liblvimfs_wrapper.so|odm/lib64/libCOppLceTonemapAPI.so|odm/lib64/libaps_frame_registration.so|vendor/lib64/libalsc.so)
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"

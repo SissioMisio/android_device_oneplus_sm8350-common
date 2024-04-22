@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021-2023 The LineageOS Project
+# Copyright (C) 2021-2024 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -27,9 +27,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
-
-# APEX
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Atrace
 PRODUCT_PACKAGES += \
@@ -212,7 +209,8 @@ PRODUCT_COPY_FILES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1.vendor \
-    android.hardware.health-service.qti
+    android.hardware.health-service.qti \
+    android.hardware.health-service.qti_recovery
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -345,7 +343,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.0-service.multihal \
+    android.hardware.sensors@2.1-service.oplus-multihal \
     libsensorndkbridge \
     sensors.oplus
 
@@ -471,6 +469,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V2-cpp \
     libnl \
     libwfdaac_vendor
 
