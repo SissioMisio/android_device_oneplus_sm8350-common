@@ -6,7 +6,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-
 ifneq ($(filter cupidr ice lemonade lemonadep lunaa martini porsche ziti,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

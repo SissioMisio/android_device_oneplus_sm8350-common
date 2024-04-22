@@ -64,12 +64,12 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        odm/bin/hw/android.hardware.ir-service.oplus)
+            "${PATCHELF}" --replace-needed "android.hardware.ir-V1-ndk_platform.so" "android.hardware.ir-V1-ndk.so" "${2}"
+            ;;
         odm/etc/camera/CameraHWConfiguration.config)
             sed -i "/SystemCamera = / s/1;/0;/g" "${2}"
             sed -i "/SystemCamera = / s/0;$/1;/" "${2}"
-            ;;
-        odm/etc/init/vendor-oplus-hardware-oplusSensor-V1-service.rc)
-            sed -i "/user/ s/system/root/g" "${2}"
             ;;
         odm/etc/init/vendor-oplus-hardware-oplusSensor-V1-service.rc)
             sed -i "/user/ s/system/root/g" "${2}"
@@ -80,8 +80,22 @@ function blob_fixup() {
         system_ext/lib64/libwfdnative.so)
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
+        vendor/bin/init.kernel.post_boot-lahaina.sh)
+            sed -i "s/uag/schedutil/" "${2}"
+            ;;
         vendor/etc/media_*/video_system_specs.json)
             sed -i "/max_retry_alloc_output_timeout/ s/1000/0/" "${2}"
+            ;;
+        vendor/etc/libnfc-hal-st.conf)
+            sed -i "s/NFC_DEBUG_ENABLED=3/NFC_DEBUG_ENABLED=0/" "${2}"
+            sed -i "s/STNFC_HAL_LOGLEVEL=1/STNFC_HAL_LOGLEVEL=0/" "${2}"
+            ;;
+        vendor/etc/libnfc-nci.conf)
+            sed -i "s/NFC_DEBUG_ENABLED=1/NFC_DEBUG_ENABLED=0/" "${2}"
+            ;;
+        vendor/etc/libnfc-nxp.conf)
+            sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
+            sed -i "s/NFC_DEBUG_ENABLED=1/NFC_DEBUG_ENABLED=0/" "${2}"
             ;;
         vendor/etc/msm_irqbalance.conf)
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
