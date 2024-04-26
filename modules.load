@@ -16,6 +16,7 @@ it913x.ko
 llcc_perfmon.ko
 m88rs6000t.ko
 machine_dlkm.ko
+uff_fp_driver.ko
 max2165.ko
 mbhc_dlkm.ko
 mc44s803.ko
