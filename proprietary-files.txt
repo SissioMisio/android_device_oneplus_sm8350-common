@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise, are
-## from OnePlus 9 Pro (LE2125_13.1.0.593(EX01)).
+## from OnePlus 9 Pro (LE2121_14.0.0.500(EX01)).
 
 # ACDBs
 vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.00.pmd
@@ -644,7 +644,8 @@ vendor/lib64/libspcom.so
 
 # Perf
 odm/lib/vendor.oplus.hardware.performance-V1-ndk_platform.so
-odm/lib64/vendor.oplus.hardware.performance-V1-ndk_platform.so
+odm/lib64/liboplus-uah-client.so
+odm/lib64/vendor.oplus.hardware.urcc-V1-ndk.so|6b0adbbb2583f9601d36a3012a4dc41bc686d270
 vendor/bin/hw/vendor.qti.hardware.perf@2.2-service
 vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
 vendor/etc/perf/commonresourceconfigs.xml
